@@ -15,9 +15,17 @@ class Ingredient
 
     def self.ingredient_list
         self.all.map { |ingredient|  ingredient.name}.sort
-       
+     
     end
 
+    def self.find_or_create_by_name(name)
+        found_ingredient = self.all.find { |ingredient| ingredient.name == name}
+        if found_ingredient 
+            return found_ingredient.url
+        else
+            return self.new(name).url
+        end
+    end
 
 
 end

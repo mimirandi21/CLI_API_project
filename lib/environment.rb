@@ -9,7 +9,7 @@ require 'net/http'
 
 require_relative 'app/cli'
 require_relative 'app/ingredient'
-
+require_relative 'app/drink'
 require_relative 'app/api'
 require_relative '../bin/run'
 

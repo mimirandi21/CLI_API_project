@@ -14,9 +14,8 @@ class Ingredient
     end
 
     def self.ingredient_list
-        list = []
-        self.all.each { |ingredient|  list << self.name}
-        list
+        self.all.map { |ingredient|  ingredient.name}.sort
+       
     end
 
 

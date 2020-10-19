@@ -9,7 +9,6 @@ class CLI
         puts "Success!"
         sleep (1)
         puts "Let's take a look at what you can make."
-        binding.pry
         ingredient_selection
         
     end

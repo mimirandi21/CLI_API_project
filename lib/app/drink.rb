@@ -27,12 +27,21 @@ class Drink
         
     end
 
-    def make_drink(name)
+    def self.drink_by_name(name)
+        new_list = self.all.select {|drink| drink.name == name}
+        new_list.map { |info| info.ingredient_hash.to_a}
+    end
+
+    def self.make_drink(name)
         puts "We're going to make a #{name}!"
         sleep (1)
         puts "Let's get some ingredients together."
         puts "You are going to need: "
-        
+        puts self.drink_by_name(name)
+        sleep (2)
+        puts "Ok, we are ready to make our drink!"
+        puts 
 
-        
+
+    end  
 end

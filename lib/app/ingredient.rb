@@ -21,10 +21,20 @@ class Ingredient
     def self.find_or_create_by_name(name)
         found_ingredient = self.all.find { |ingredient| ingredient.name == name}
         if found_ingredient 
+            return found_ingredient
+        else
+            return self.new(name)
+        end
+    end
+
+    def self.find_url(name)
+        found_ingredient = self.all.find { |ingredient| ingredient.name == name}
+        if found_ingredient 
             return found_ingredient.url
         else
             return self.new(name).url
         end
+
     end
 
 

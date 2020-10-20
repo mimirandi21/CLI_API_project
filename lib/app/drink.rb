@@ -21,27 +21,51 @@ class Drink
     
     end
 
+    def self.find_or_create_by_name(name, url, ingredient_hash, instructions)
+        found_drink = self.all.find { |drink| drink.name == name}
+        if found_drink 
+            return found_drink
+        else
+            return self.new(name, url, ingredient_hash, instructions)
+        end
+    end
+
     def self.drink_list_by_ingredient(ingredient)
         new_list = self.all.select {|drink| drink.ingredient_hash.include?(ingredient) }
         new_list.map { |drink| drink.name}
         
     end
 
-    def self.drink_by_name(name)
+    def self.drink_ingredient_by_name(name)
+        new_list = ""
         new_list = self.all.select {|drink| drink.name == name}
-        new_list.map { |info| info.ingredient_hash.to_a}
+        new_list.map { |info| info.ingredient_hash.map{ |x, y| "#{y}  of  #{x}" unless y == nil}}
+    end
+
+    def self.drink_instructions_by_name(name)
+        new_list = ""
+        new_list = self.all.select {|drink| drink.name == name}
+        new_list.map {|info| info.instructions}
     end
 
     def self.make_drink(name)
-        puts "We're going to make a #{name}!"
+
+        puts ""
+        puts "      We're going to make a #{name}!"
+        puts "-------------------------------------------------------------------------------------------"
         sleep (1)
-        puts "Let's get some ingredients together."
-        puts "You are going to need: "
-        puts self.drink_by_name(name)
+        puts "      Let's get some ingredients together."
+        puts "      You are going to need: "
+        puts ""
+        puts self.drink_ingredient_by_name(name)
+        puts "-------------------------------------------------------------------------------------------"
         sleep (2)
-        puts "Ok, we are ready to make our drink!"
-        puts 
-
-
+        puts "      Ok, we are ready to make our drink!"
+        puts ""
+        sleep (2)
+        puts self.drink_instructions_by_name(name)
+        puts ""
+        sleep (2)
+        puts "      At long last, you have a drink in your hand!"
     end  
 end

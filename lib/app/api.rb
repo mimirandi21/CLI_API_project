@@ -45,7 +45,7 @@ class API
                 ingredient_hash[info["strIngredient15"]] = info["strMeasure15"] if info["strMeasure15"] != "null" || nil
                 
 
-                Drink.new(drink["strDrink"], drink["idDrink"], ingredient_hash, info["strInstructions"])
+                Drink.find_or_create_by_name(drink["strDrink"], drink["idDrink"], ingredient_hash, info["strInstructions"])
             end
         end
     end

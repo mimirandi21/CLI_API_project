@@ -1,3 +1,5 @@
+require 'colorize'
+
 class Drink
 
     attr_accessor :name, :url, :ingredient_hash, :instructions, :ingredient
@@ -39,31 +41,37 @@ class Drink
     def self.drink_ingredient_by_name(name)
         new_list = ""
         new_list = self.all.select {|drink| drink.name == name}
-        new_list.map { |info| info.ingredient_hash.map{ |x, y| "#{y}  of  #{x}" unless y == nil}}
+        new_list.map { |info| info.ingredient_hash.map{ |x, y|  "#{y}  of  #{x}" unless y == nil}.join("\n")}.join
+        
     end
 
     def self.drink_instructions_by_name(name)
-        new_list = ""
+        
         new_list = self.all.select {|drink| drink.name == name}
-        new_list.map {|info| info.instructions}
+        new_list.map {|info| return info.instructions.to_s}
+
     end
 
     def self.make_drink(name)
-
+        
         puts ""
         puts "      We're going to make a #{name}!"
-        puts "-------------------------------------------------------------------------------------------"
-        sleep (1)
-        puts "      Let's get some ingredients together."
-        puts "      You are going to need: "
         puts ""
-        puts self.drink_ingredient_by_name(name)
-        puts "-------------------------------------------------------------------------------------------"
+        sleep (1)
+        puts "  Let's get some ingredients together."
+        colorizer = Lolize::Colorizer.new
+        colorizer.write "-------------------------------------------------------------------------------------------"
+        puts ""
+        puts "      You are going to need: ".magenta
+        puts ""
+        puts Rainbow(self.drink_ingredient_by_name(name)).magenta
+        colorizer.write "-------------------------------------------------------------------------------------------"
+        puts ""
         sleep (2)
         puts "      Ok, we are ready to make our drink!"
         puts ""
         sleep (2)
-        puts self.drink_instructions_by_name(name)
+        puts Rainbow(self.drink_instructions_by_name(name)).magenta
         puts ""
         sleep (2)
         puts "      At long last, you have a drink in your hand!"

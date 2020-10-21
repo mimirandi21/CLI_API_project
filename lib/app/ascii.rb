@@ -19,9 +19,9 @@ class ASCII
 
     def self.small_glass
         puts ""
-        puts "        o".light_cyan
+        puts Rainbow("        o").teal
         puts "       o"
-        puts "      o  o".light_magenta
+        puts Rainbow("      o  o").deeppink
         puts "       o o o"
         puts "      \\~~~~~/"
         puts "       \\   /"

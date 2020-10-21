@@ -1,7 +1,9 @@
 class CLI
 
     def run
-        puts "      Greetings, friends."
+        puts ""
+        puts ""
+        puts "                    Greetings, friends."
         puts "                        Welcome to"
         ASCII.logo
         sleep (1)
@@ -14,6 +16,7 @@ class CLI
         puts "      Success!"
         sleep (1)
         puts "      Let's take a look at what you can make."
+        puts ""
         colorizer = Lolize::Colorizer.new
         colorizer.write "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         puts ""
@@ -33,7 +36,7 @@ class CLI
             CLI.ingredient_choice
         else
             puts ""
-            puts "              Cheers!".light_magenta
+            puts "              Cheers!".light_blue
             puts ""
             sleep (1)
             puts "      Thank you for drinking with me."
@@ -51,9 +54,10 @@ class CLI
 
     def self.ingredient_choice
         #asks user to pick which ingredient they want to use using ingredient list
+        puts ""
         ingredient_prompt = TTY::Prompt.new
         $user_ingredient = ingredient_prompt.select("  What ingredient do you want to use?", Ingredient.ingredient_list, filter: true)
-        puts "   You selected #{$user_ingredient}."
+        puts "   You selected #{$user_ingredient}.".light_blue
         puts "   Let me search my recipe book..."
         puts ""
         API.new.drink_by_ingredient_fetch(Ingredient.find_url($user_ingredient))
@@ -63,9 +67,10 @@ class CLI
 
     def self.drink_choice
         #asks user which drink they want to make based on ingredient choice using drink list by ingredient
+        puts ""
         drink_prompt = TTY::Prompt.new
         $user_drink = drink_prompt.select("  Which of these delicious drinks would you like to make?", Drink.drink_list_by_ingredient($user_ingredient), filter: true)
-        puts "   You selected #{$user_drink}."
+        puts "   You selected #{$user_drink}.".light_blue
         puts "   Let me grab that recipe!"
         #returns drink information based on user drink choice
         Drink.make_drink($user_drink)  

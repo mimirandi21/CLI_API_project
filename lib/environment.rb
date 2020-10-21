@@ -9,6 +9,7 @@ require 'net/http'
 require 'lolize'
 require 'rainbow'
 
+require_relative 'app/user'
 require_relative 'app/ascii'
 require_relative 'app/cli'
 require_relative 'app/ingredient'

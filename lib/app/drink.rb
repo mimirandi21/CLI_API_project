@@ -52,31 +52,5 @@ class Drink
 
     end
 
-    def self.make_drink(name)
-        
-        puts ""
-        puts "  We're going to make a #{name}!"
-        puts ""
-        sleep (1)
-        puts "   Let's get some ingredients together."
-        puts ""
-        colorizer = Lolize::Colorizer.new
-        colorizer.write "-------------------------------------------------------------------------------------------"
-        puts ""
-        puts "      You are going to need: "
-        puts ""
-        puts Rainbow(self.drink_ingredient_by_name(name)).darkorchid
-        
-        sleep (2)
-        puts "      Ok, we are ready to make our drink!"
-        puts ""
-        sleep (2)
-        puts "  " + Rainbow(self.drink_instructions_by_name(name)).darkorchid
-        puts ""
-        colorizer.write "-------------------------------------------------------------------------------------------"
-        puts ""
-        sleep (2)
-        puts ""
-        puts "      At long last, you have a drink in your hand!"
-    end  
+      
 end

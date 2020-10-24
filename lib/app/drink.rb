@@ -1,14 +1,13 @@
 require 'colorize'
 
 class Drink
-
     attr_accessor :name, :url, :ingredient_hash, :instructions, :ingredient
-
     @@all = []
+    @@recently_made = []
 
     def initialize(name, url, ingredient_hash, instructions)
         @name = name
-        @url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + url
+        @url = url
         @ingredient_hash = ingredient_hash
         @instructions = instructions
         @@all << self
@@ -20,7 +19,6 @@ class Drink
 
     def self.drink_list
         self.all.map {|drink|  drink.name}.sort
-    
     end
 
     def self.find_or_create_by_name(name, url, ingredient_hash, instructions)
@@ -35,22 +33,21 @@ class Drink
     def self.drink_list_by_ingredient(ingredient)
         new_list = self.all.select {|drink| drink.ingredient_hash.include?(ingredient) }
         new_list.map { |drink| drink.name}
-        
     end
 
     def self.drink_ingredient_by_name(name)
         new_list = ""
         new_list = self.all.select {|drink| drink.name == name}
-        new_list.map { |info| info.ingredient_hash.map{ |x, y|  "   #{y} #{x}" unless x == nil}.join("\n")}.join
-        
+        new_list.map { |info| info.ingredient_hash.map{ |x, y|  "    #{y} #{x}" unless x == nil}.join("\n")}.join
     end
 
     def self.drink_instructions_by_name(name)
-        
+        recently_made << name
         new_list = self.all.select {|drink| drink.name == name}
-        new_list.map {|info| return info.instructions.to_s}
-
+        new_list.map {|info| return "  " + info.instructions.to_s}
     end
 
-      
+    def self.recently_made
+        @@recently_made
+    end
 end

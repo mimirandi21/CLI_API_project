@@ -1,5 +1,5 @@
 # Randi's Bar
-> A Ruby CLI app created to help those of us who never know what to drink
+A Ruby CLI app created to help those of us who never know what to drink
 
 ## Table of contents
 * [General info](#general-info)
@@ -37,7 +37,6 @@ Randi's Bar makes you your own personal bartender.  It can help you learn how to
 
 To-do list:
 * Implement database functionality to save users, drinks and favorites for subsequent trips to the bar.
-* Wow improvement to be done 2
 
 ## Status
 Project is in progress.  Would like to add database to make app more functional.

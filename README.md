@@ -15,7 +15,7 @@
 Randi's Bar makes you your own personal bartender.  It can help you learn how to make that drink you always get at the bar but never knew how to make or it can suggest drinks so you can find your new favorite!  If you can't find what you're looking for, you can even make your own drink.
 
 ## Screenshots
-![Example screenshot](./img/screenshot.png)
+![Example screenshot](./lib/app/images/CLI.png)
 
 ## Technologies
 * Ruby
@@ -28,10 +28,6 @@ Randi's Bar makes you your own personal bartender.  It can help you learn how to
 * run `cd CLI_API_project` to access
 * run `bundle install` to install required dependencies
 * run `ruby bin/run.rb` to head to the bar
-
-## Code Examples
-Show examples of usage:
-`put-your-code-here`
 
 ## Features
 * Colorful welcome display and greeting.

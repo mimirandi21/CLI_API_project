@@ -1,31 +1,53 @@
-Randi's Bar
+# Randi's Bar
+> A Ruby CLI app created to help those of us who never know what to drink
 
-Program description: 
+## Table of contents
+* [General info](#general-info)
+* [Screenshots](#screenshots)
+* [Technologies](#technologies)
+* [Setup](#setup)
+* [Features](#features)
+* [Status](#status)
+* [Inspiration](#inspiration)
+* [Contact](#contact)
 
-This program retrieves information on drinks from The CocktailDB.com API.  When first arriving at Randi's Bar, the program will ask if the guest has been to Randi's Bar before.  If the guest has been, they will log in to access a list of their previously saved favorite drinks.  If they are new to the bar, they will create a guest account so they can begin saving their favorites. 
+## General info
+Randi's Bar makes you your own personal bartender.  It can help you learn how to make that drink you always get at the bar but never knew how to make or it can suggest drinks so you can find your new favorite!  If you can't find what you're looking for, you can even make your own drink.
 
-A guest can create a new drink from a list of ingredients, by searching by name or from a list of either recently made drinks or the guest's previously saved favorites.  Once the selection has been made, the program will retrieve the details and present them to the guest, showing them how to create this drink.  The guest will then be given the option to save this drink to their favorites and asked if they would like to make another drink.   
+## Screenshots
+![Example screenshot](./img/screenshot.png)
 
-If the guest is done, the option is presented for another guest to belly up to the bar and create their cocktail of choice.  Each guest will have their own favorites available to choose from as well as a list of recently made drinks - in case they want to try what the guest before them made!   
+## Technologies
+* Ruby
+* OpenURI - Gem used to ease API information pull
+* TTY::Prompt - Gem that provides easy option selection
+* Rainbow & Colorize - Gems used for colorization of text
 
-In addition to the options previously mentioned, each guest also has the option of creating their own drinks.  Once created, the drink details will be presented for the guest and they will be given the option to add to their favorites.  It will also remain in the recently made drinks for additional users to try if they would like! 
+## Setup
+* Clone this repo to your local machine `git clone <this-repo-url>`
+* run `cd CLI_API_project` to access
+* run `bundle install` to install required dependencies
+* run `ruby bin/run.rb` to head to the bar
 
-Once all guests have completed their drinking for the night, the exit prompts will advise the guest that all favorites will be lost when they leave the bar. 
+## Code Examples
+Show examples of usage:
+`put-your-code-here`
 
-  
+## Features
+* Colorful welcome display and greeting.
+* Sign in feature which also saves your favorite drinks during the same session.
+* Search for drinks based on ingredient, drink name, recently made drinks or your favorites.
+* Create personalized drinks.
 
-Usage 
+To-do list:
+* Implement database functionality to save users, drinks and favorites for subsequent trips to the bar.
+* Wow improvement to be done 2
 
-Follow the prompts throughout your time at the bar.  Be sure to remember once you leave the bar, your favorites will be lost. 
+## Status
+Project is in progress.  Would like to add database to make app more functional.
 
-  
+## Inspiration
+Project inspired by my inability to decide what to drink ever.
 
-Contributing 
-
+## Contact
 Bug reports and pull requests are welcome on GitHub at https://github.com/mimirandi21/CLI_API_project. 
-
-  
-
-License 
-
-The project is available as open source under the terms of the MIT License. 
